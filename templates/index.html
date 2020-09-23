@@ -2,13 +2,41 @@
 {% block content %}
 <div class="container">
     <h6>Book ODM - R in CRUD</h6>
+    {# Macro for creating navigation links #}
+    {% macro render_navigation(pagination, endpoint) %}
+    <div class="pagination">Page #:
+        {% if page_prev == 0 %}
+        &lt;&nbsp;
+        {% else %}
+        <a href="{{ url_for(endpoint, page=page_prev) }}">&lt;&nbsp;</a>
+        {% endif %}
+        {% if pagination.has_next %}
+        <a href="{{ url_for(endpoint, page=page_next) }}">&gt;&nbsp;</a>
+        {% else %}
+        &gt;&nbsp;
+        {% endif %}
+        {% for page in pagination.iter_pages() %}
+        {% if page %}
+        {% if page != pagination.page %}
+        <a href="{{ url_for(endpoint, page=page) }}">{{ page }}</a>
+        {% else %}
+        <span style="background-color: #0D47A1; color: white; padding: 1px 5px;">{{ page }}</span>
+        {% endif %}
+        {% else %}
+        <span class="ellipsis">…</span>
+        {% endif %}
+        {% endfor %}
+    </div>
+    {% endmacro %}
+
+    {{ render_navigation(books_pagination, 'home_page') }}
     <table>
         <tr class="white-text blue darken-4">
             <th>Title</th>
             <th>Author</th>
             <th>Year</th>
         </tr>
-        {% for book in books_pagination %}
+        {% for book in books_pagination.items %}
         <tr class="{{loop.cycle('white','blue-grey lighten-5')}}">
             <td><a href="{{url_for('edit_book', book_id=book.id)}}"><i
                         class="material-icons blue-text text-darken-4">create</i></a>
