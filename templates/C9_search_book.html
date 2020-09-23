@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h6>Book ODM - R (Search) in CRUD</h6>
+    <div class="row">
+        <form action="{{ url_for('save_search') }}" method="POST" class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix tooltipped" data-position="right"
+                        data-tooltip="Please enter the title of the book, or parts of a title.">title</i>
+                    <input id="title" name="title" type="text" maxlength="200">
+                    <label for="title">Search Title</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix tooltipped" data-position="right"
+                        data-tooltip="Please enter the author's name, or parts of a name.">person</i>
+                    <input id="author" name="author" type="text" maxlength="200">
+                    <label for="author">Search Author</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix tooltipped" data-position="right"
+                        data-tooltip="Please enter the 10 or 13 digit ISBN. It is used for external book searches. When filling in this field, this is the only field that will be used as the search criteria.">vpn_key</i>
+                    <input id="isbn" name="isbn" type="number" max="9799999999999">
+                    <label for="isbn">Search ISBN</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix tooltipped" data-position="right"
+                        data-tooltip="Please enter the rating (greater than or equal to), from 1 to 10. For example, 8 will only return books with a rating of 8 or greater (8, 9, 10).">poll</i>
+                    <input id="rating" name="rating" type="number" min="1" max="10">
+                    <label for="rating">Search Rating</label>
+                </div>
+            </div>
+            <div class="row button_top_padding">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Search Books
+                    <i class="material-icons right">search</i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

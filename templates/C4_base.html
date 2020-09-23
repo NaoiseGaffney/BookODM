@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Book Object Document Mapper Demonstration</title>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'styles/style.css') }}">
+
+    {# *** Allow sub-templates to insert extra html to the head section *** #}
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+    <header>
+        {% block body %}
+        <nav class="nav-wrapper white">
+            <div class="container">
+                <a href="{{url_for('home_page')}}"><img src="/static/images/logo_bookstack_text_96_spacing.png"
+                        height="60" alt="Book Repository Logo"></a>
+                <a href="#" class="sidenav-trigger" data-target="mobile-links">
+                    <i class="material-icons blue-text text-darken-4" id="matnavbar">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down blue darken-4 waves-effect" id="nav-mobile">
+                    <li>
+                        <a href="{{ url_for('home_page')}}">Home<i class="material-icons right">home</i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Naviagtion for Mobile devices using a "Hamburger-menu" which must be defined outside of <nav></nav> to function in Materialize 1.0.0 -->
+        <ul class="sidenav blue darken-4" id="mobile-links">
+            <li>
+                <a href="{{ url_for('home_page')}}" class="white-text">Home<i
+                        class="material-icons white-text left">home</i></a>
+            </li>
+        </ul>
+    </header>
+    {% block menu %}
+    {% endblock %}
+
+    <div id="main-div" class="container center">
+        {# One-time system messages called Flash messages #}
+        {% block flash_messages %}
+        {%- with messages = get_flashed_messages(with_categories=true) -%}
+        {% if messages %}
+        {% for category, message in messages %}
+        {% if category=='error' %}
+        {% set category='danger' %}
+        {% endif %}
+        <div class="message chip message-{{category}}">{{ message|safe }}</div>
+        {% endfor %}
+        {% endif %}
+        {%- endwith %}
+        {% endblock %}
+    </div>
+
+    {% block main %}
+    {% block content %}{% endblock %}
+    {% endblock %}
+
+    <footer class="page-footer transparent">
+        <div class="footer-copyright blue darken-4">
+            <div class="left-align">Flask-MongoEngine and MongoEngine</div>
+            <div class="center-align"><i class="material-icons white-text"
+                        id="menu_book">menu_book</i></div>
+            <div class="right-align">Object Document Mapper</div>
+        </div>
+    </footer>
+    {% endblock %}
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Initialise MaterializeCSS 1.0.0 Features -->
+    <script src="{{ url_for('static', filename = 'scripts/vendor/materialize.js') }}"></script>
+    <!-- Message Chip Timeout -->
+    <script src="{{ url_for('static', filename = 'scripts/message.js') }}"></script>
+
+    {# *** Allow sub-templates to insert extra html to the bottom of the body *** #}
+    {% block extra_js %}{% endblock %}
+</body>
+
+</html>

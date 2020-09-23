@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h6>Book ODM - R in CRUD</h6>
+    <table>
+        <tr class="white-text blue darken-4">
+            <th>Title</th>
+            <th>Author</th>
+            <th>Year</th>
+        </tr>
+        {% for book in books_pagination %}
+        <tr class="{{loop.cycle('white','blue-grey lighten-5')}}">
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.year}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
