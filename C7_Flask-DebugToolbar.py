@@ -58,15 +58,13 @@ class Book(db.Document):
 @app.route("/")
 @app.route("/index")
 @app.route("/index.html")
-@app.route("/index.html/<int:page>")
-def home_page(page=1):
+def home_page():
     """
     The "R" in CRUD, a virtual library or stack of books to browse.
     """
-    # books_pagination = Book.objects()
-    books_pagination = Book.objects.paginate(page=page, per_page=5)
-    # print(books_pagination.count())
-    return render_template("index.html", books_pagination=books_pagination, page_prev=(page - 1), page_next=(page + 1))
+    books_pagination = Book.objects()
+    print(books_pagination.count())
+    return render_template("index.html", books_pagination=books_pagination)
 
 
 @app.route("/add_book")
