@@ -1,21 +1,14 @@
 import os
 from flask import Flask
 import gunicorn
-from flask_mongoengine import MongoEngine
 
 from dotenv import load_dotenv
 from pathlib import Path
 env_path = Path(".") / ".env"
 load_dotenv(dotenv_path=env_path)
 
-app = Flask(__name__, static_folder="static", template_folder="templates")
 
-# Flask-MongoEngine settings
-MONGO_URI_BOOKODM = os.environ.get("MONGO_URI_BOOKODM")
-app.config["MONGODB_SETTINGS"] = {
-    'host': MONGO_URI_BOOKODM
-}
-db = MongoEngine(app)
+app = Flask(__name__, static_folder="static", template_folder="templates")
 
 
 @app.route("/")
