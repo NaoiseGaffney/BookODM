@@ -88,62 +88,6 @@ def save_book():
     return redirect(url_for("home_page"))
 
 
-@app.route("/edit_book/<book_id>")
-def edit_book(book_id):
-    """
-    Preparing for the "U" in CRUD, updating the book form fields.
-    """
-    book = Book.objects.get(id=book_id)
-    return render_template("edit_book.html", book=book)
-
-
-@app.route("/update_book/<book_id>", methods=["POST"])
-def update_book(book_id):
-    """
-    The "U" in CRUD, saving the changes made to the update book form fields.
-    """
-    book = Book.objects.get(id=book_id)
-    fields = {
-        "title": request.form.get("title"),
-        "author": request.form.get("author"),
-        "year": request.form.get("year"),
-        "ISBN": request.form.get("isbn"),
-        "short_description": request.form.get("short_description"),
-        "comments": request.form.get("comments"),
-        "rating": request.form.get("rating"),
-        "genre": request.form.get("genre"),
-        "private_view": request.form.get("private_view")
-    }
-
-    if fields["private_view"] != "on":
-        fields["private_view"] = "off"
-
-    try:
-        book.update(**fields)
-        flash("The book is updated!", "success")
-    except Exception:
-        flash("The book was NOT updated!", "danger")
-    return redirect(url_for("home_page"))
-
-
-@app.route("/delete_book/<book_id>")
-def delete_book(book_id):
-    """
-    The "D" in CRUD, deleting the book based on 'id'.
-    """
-    book = Book.objects.get(id=book_id)
-
-    try:
-        book.delete()
-        flash("The book is deleted!", "success")
-    except ReferenceError:
-        pass
-    except Exception:
-        flash("The book was NOT deleted!", "danger")
-
-    return redirect(url_for("home_page"))
-
-
 if __name__ == "__main__":
     if os.environ.get("APPDEBUG") == "ON":
         app.run(host=os.environ.get("IP"),

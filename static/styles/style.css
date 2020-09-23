@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|&display=swap');
+
+/* --- // Main Styling and Layout */
+/* Reset values */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+/* Use Raleway font throughout the site, and provide room for the scrolling under the fixed nav-bar and footer */
+html,
+body {
+    font-family: 'Raleway', sans-serif;
+    margin-top: 35px;
+    margin-bottom: 50px;
+}
+
+/* Background image setting */
+html {
+    background: url("/static/images/sharon-mccutcheon-eMP4sYPJ9x0-unsplash.jpg") no-repeat center center fixed;
+    /* Photo by <a href="https://unsplash.com/@sharonmccutcheon?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Sharon McCutcheon</a> */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.landing_logo {
+    width: 100%;
+}
+
+.landing_page {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+}
+
+/* <a href... */
+a {
+    color: #0D47A1;
+}
+
+/* Pagination styling to suit <H6> above on the 'members.html' page */
+.pagination {
+    font-size: 1.15rem;
+    line-height: 110%;
+    margin-bottom: 1rem;
+}
+
+/* --- // Navigation Bar, Hamburger-bar, and Fixed Footer Styling and Layout */
+/* Navigation Bar: fixed and MaterializeCSS styling. */
+nav {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+.sidenav {
+    width: 230px;
+}
+
+/* Footer: fixed footer and MaterializeCSS styling. Using box-shadow (in reverse) from the MaterializeCSS navbar class. */
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #0D47A1;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.footer-copyright {
+    -webkit-box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.14), 0 -3px 1px 0 rgba(0, 0, 0, 0.12), 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.14), 0 -3px 1px 0 rgba(0, 0, 0, 0.12), 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.14), 0 -3px 1px 0 rgba(0, 0, 0, 0.12), 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.page-footer,
+.footer-copyright {
+    padding: 0px;
+    z-index: 10;
+}
+
+#menu_book {
+    transform: scale(1.2);
+    padding: 0px 2px;
+}
+
+footer .left-align {
+    padding-left: 15%;
+}
+
+footer .right-align {
+    padding-right: 15%;
+}
+
+/* --- // Modal Colour Schemes to match the Book Repository UX Design */
+.modal,
+.modal-footer {
+    font-family: 'Raleway', sans-serif;
+    color: #0D47A1;
+}
+
+.page-footer,
+.tabs .indicator {
+    background-color: #0D47A1;
+}
+
+.tab_content_heading {
+    padding: 10px 0px;
+}
+
+/* --- // Message Chips (Flask, MaterializeCSS 1.0.0, custom CSS 3, and a JS Timeout function = Flask Flash Messages) */
+.message-success {
+    color: #FFFFFF;
+    background-color: #26A69A;
+}
+
+.message-info {
+    color: #FFFFFF;
+    background-color: #37474F;
+}
+
+.message-warning {
+    color: #FFFFFF;
+    background-color: orange;
+}
+
+.message-danger {
+    color: #FFFFFF;
+    background-color: #d81b60;
+}
+
+.help-block {
+    color: #FFFFFF;
+    background-color: #d81b60;
+}
+
+/* --- // Book Spine background-image for the Member's Page */
+.collapsible-header {
+    background-image: url("/static/images/christian-wiediger-GWucxGZvO-w-unsplash.jpg");
+    /* Photo by <a href="https://unsplash.com/@christianw?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Christian Wiediger</a> */
+    background-position: 95% 55%;
+    background-size: 150%
+}
+
+.collapsible-body {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.book_spine {
+    text-align: center;
+}
+
+.book_actions {
+    padding: 10px 0px 0px 10px;
+}
+
+/* ---// Form Fields and Buttons Styling */
+/* Remember Me Label */
+#remember_me_label {
+    font-size: 1rem;
+    color: #000000;
+    margin-left: 15px;
+}
+
+label {
+    color: #000000;
+}
+
+/* "Breathing space between the submit/register/login buttons, the fields and the forms */
+.button_top_padding,
+.field_top_padding {
+    padding-top: 1rem;
+}
+
+.btn {
+    background-color: #0d47a1;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: #0c4091;
+}
+
+/* --- // Taken from 'materialize.css' (1.0.0) to style the input fields to match the Book Repository UX Design */
+/* Checkbox when selected is the same colour as the rest of the form elements */
+[type="checkbox"]:checked+span:not(.lever):before {
+    border-right: 2px solid #0d47a1;
+    border-bottom: 2px solid #0d47a1;
+}
+
+input:not([type]):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]),
+input[type=time]:not(.browser-default):focus:not([readonly]),
+input[type=date]:not(.browser-default):focus:not([readonly]),
+input[type=datetime]:not(.browser-default):focus:not([readonly]),
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+input[type=tel]:not(.browser-default):focus:not([readonly]),
+input[type=number]:not(.browser-default):focus:not([readonly]),
+input[type=search]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #0d47a1;
+    -webkit-box-shadow: 0 1px 0 0 #0d47a1;
+    box-shadow: 0 1px 0 0 #0d47a1;
+}
+
+input:not([type]):focus:not([readonly])+label,
+input[type=text]:not(.browser-default):focus:not([readonly])+label,
+input[type=password]:not(.browser-default):focus:not([readonly])+label,
+input[type=email]:not(.browser-default):focus:not([readonly])+label,
+input[type=url]:not(.browser-default):focus:not([readonly])+label,
+input[type=time]:not(.browser-default):focus:not([readonly])+label,
+input[type=date]:not(.browser-default):focus:not([readonly])+label,
+input[type=datetime]:not(.browser-default):focus:not([readonly])+label,
+input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label,
+input[type=tel]:not(.browser-default):focus:not([readonly])+label,
+input[type=number]:not(.browser-default):focus:not([readonly])+label,
+input[type=search]:not(.browser-default):focus:not([readonly])+label,
+textarea.materialize-textarea:focus:not([readonly])+label {
+    color: #0d47a1;
+}
+
+.input-field .prefix.active {
+    color: #0d47a1;
+}
+
+.switch label input[type=checkbox]:checked+.lever {
+    background-color: #0c4091;
+}
+
+.switch label input[type=checkbox]:checked+.lever:after {
+    background-color: #ffffff;
+}
+
+.input-field>label {
+    color: #000000;
+}
+
+.dropdown-content li>a,
+.dropdown-content li>span {
+    color: #0d47a1;
+}
+
+.select-wrapper input.select-dropdown:focus {
+    border-bottom: 2px solid #0d47a1;
+}
+
+.select-wrapper .prefix.active {
+    color: #0D47A1;
+}
+
+/* Active Label on the Register Page and Jinja render for Flask-User and error handling */
+.input-field>label:not(.label-icon).active {
+    color: #0D47A1;
+}
+
+/* --- // W3Schools Drop-Down Menu for the Member's, Search Results, and Admin Pages */
+.book-dropdown {
+    position: relative;
+    display: inline-block;
+    list-style-type: none;
+    padding-top: 12px;
+}
+
+.book-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 216px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    z-index: 10;
+    right: 0;
+}
+
+.book-dropdown:hover .book-dropdown-content {
+    display: block;
+}
