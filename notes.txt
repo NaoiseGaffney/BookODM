@@ -1,0 +1,40 @@
+Useful Links:
+
+MongoEngine CUD (no R) Overview by Paris Nakita Kajser
+https://www.youtube.com/watch?v=SlmualOsp6I&list=PLLhEJK7fQIxD9Yz3wljWxzkkwyIVtYC1b&ab_channel=ParisNakitaKejser
+
+MongoEngine Documentation
+https://mongoengine-odm.readthedocs.io/index.html
+
+Flask-MongoEngine
+http://docs.mongoengine.org/projects/flask-mongoengine/en/latest/
+
+Naoise Gaffney - "Gaff" - Book Repository Trello Board
+https://trello.com/b/vqcEO8H4/book-repository
+
+Flask-DebugToolbar
+https://flask-debugtoolbar.readthedocs.io/en/latest/
+
+PrettyPrinted (Anthony Herbert) Flask Extensions Course
+https://courses.prettyprinted.com/courses/enrolled/199647
+
+Flask-User MongoDB App Example
+https://flask-user.readthedocs.io/en/latest/mongodb_app.html
+
+Flask-Login Session Protection
+https://flask-login.readthedocs.io/en/latest/#session-protection
+
+Explore Flask
+https://exploreflask.com/en/latest/index.html
+
+Flask Session Object by Jason Nash
+https://pythonise.com/series/learning-flask/flask-session-object
+
+MongoEngine Walkthrough by Paris Nakita Kejser
+https://www.youtube.com/watch?v=SlmualOsp6I&list=PLLhEJK7fQIxD9Yz3wljWxzkkwyIVtYC1b&ab_channel=ParisNakitaKejser
+
+Docs MongoEngine Querying
+https://docs.mongoengine.org/guide/querying.html
+
+VSCode Extension: GitHub Pull Requests and Issues
+https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github
